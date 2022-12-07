@@ -32,10 +32,10 @@ function com_img(){
 	find $1 -mmin -60 -size +$2 -name '*.bmp' -exec optipng -o3 {} \;
 
 	#使用jpegoptim压缩.jpg
-        find $1 -iname "*.jpg" -exec convert -strip +profile "*" -resize 1600x900 {} {} \;
+        find $1 -iname "*.jpg" -exec convert -strip +profile "*" -resize 800x450 {} {} \;
         find $1 -iname "*.jpg" -size +80k -exec convert -strip +profile "*" -quality 50 {} {} \;
-	find $1 -mmin -60 -size +$2 -name '*.jpg' -exec jpegoptim -m 80 {} \;
-	find $1 -mmin -60 -size +$2 -name '*.jpeg' -exec jpegoptim -m 80 {} \;
+	find $1 -mmin -60 -size +$2 -name '*.jpg' -exec jpegoptim -m 50 {} \;
+	find $1 -mmin -60 -size +$2 -name '*.jpeg' -exec jpegoptim -m 50 {} \;
 }
 
 #调用压缩函数
